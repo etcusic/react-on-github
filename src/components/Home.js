@@ -28,21 +28,14 @@ export class HomePage extends Component {
   
   render() {
     return (
-      <div className="row">
+      <div>
         { this.state.view }
         <div>
-            <button onClick={ toggleView }>Toggle Page</button>
+            <button onClick={ this.toggleView }>Toggle Page</button>
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user,
-    decks: state.decks
-  }
-}
-
-export default connect(mapStateToProps, { fetchDecks, fetchConnectFourLogs })(HomePage)
+export default HomePage
