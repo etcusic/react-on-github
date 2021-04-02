@@ -1,10 +1,15 @@
 import './App.css';
-import Home from './components/Home'
+import React, { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="App">
-      <Home />
+    <div>
+      <h1>The count is: { count }</h1> 
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
     </div>
   );
 }

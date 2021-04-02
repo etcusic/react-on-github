@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PageOne from './PageOne.js'
-import PageTwo from './PageTwo.js'
+import PageTwo from '../PageTwo.js'
 
 export class HomePage extends Component {
 
