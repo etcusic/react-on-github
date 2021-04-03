@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
+import Home from './components/Home'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,6 +18,7 @@ function App() {
         Click me
       </button>
       <button onClick={ checkAPI }>Check API</button>
+      <Home />
     </div>
   );
 }

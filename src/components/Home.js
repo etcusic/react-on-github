@@ -1,38 +1,36 @@
 import React, { Component } from 'react'
-import PageOne from './PageOne.js'
-import PageTwo from '../PageTwo.js'
+import { sendToHeroku } from '../actions/index'
 
 export class HomePage extends Component {
 
   constructor(){
       super()
       this.state = {
-          integer: 1,
-          view: <PageOne />
+          thing: ""
       }
   }
 
-  toggleView = () => {
-      if (this.state.integer === 1){
-          this.setState({
-              integer: 2,
-              view: <PageTwo />
-          })
-      } else {
-        this.setState({
-            integer: 1,
-            view: <PageOne />
-        })
-      }
+  changeThing = (value) => {
+      let thing = Object.assign({}, this.state.thing)
+      thing = value
+      this.setState({ thing: thing })
   }
-  
+
+  checkState = () => {
+    console.log(this.state)
+  }
+
   render() {
     return (
       <div>
-        { this.state.view }
+        <h1>Development Section: </h1>
         <div>
-            <button onClick={ this.toggleView }>Toggle Page</button>
+          <form onSubmit={ event => sendToHeroku(event, this.state.thing) }>
+            <input onChange={ event => this.changeThing(event.target.value) } value={ this.state.thing }></input>
+            <button type="submit">Send to Heroku</button>
+          </form>
         </div>
+        <button onClick={ this.checkState }>Check State</button>
       </div>
     )
   }
