@@ -1,7 +1,13 @@
+export const getThings = () => {
+    fetch("https://rails-with-heroku.herokuapp.com/things")
+    .then(resp =>  resp.json())
+    .then(things => things)
+}
+
 export const sendToHeroku = (event, thing) =>{
     event.preventDefault()
     // const route = `http://localhost:3001/things`
-    const route = `https://my-sous-backend.herokuapp.com/things`
+    const route = `https://rails-with-heroku.herokuapp.com/things`
     const configObject = {
         method: 'POST',
         headers: {

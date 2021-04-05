@@ -6,7 +6,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   const checkAPI = () => {
-    fetch("https://my-sous-backend.herokuapp.com/things")
+    fetch("https://rails-with-heroku.herokuapp.com/things")
     .then(resp =>  resp.json())
     .then(things => console.log(things))
   }
